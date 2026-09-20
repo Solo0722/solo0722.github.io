@@ -769,42 +769,42 @@ export const projects: CaseStudy[] = [
   //   ],
   //   published: true,
   // },
-  // {
-  //   slug: "moviemix",
-  //   title: "Moviemix",
-  //   year: "2023",
-  //   category: "Web",
-  //   role: "Design & build",
-  //   summary: "Ratings, reviews and where to watch — across films and television.",
-  //   problem:
-  //     "Deciding what to watch means opening four tabs: one for the rating, one for the synopsis, one for reviews, one to work out which service actually has it. The information exists; it's just scattered.",
-  //   build:
-  //     "Moviemix pulls all of it into one view off the TMDB API — details, ratings, reviews and streaming availability on a single page per title, with search and browse across both films and TV. Built in React with a focus on getting from search to decision in as few steps as possible.",
-  //   outcome:
-  //     "Four tabs become one page. The interface is deliberately thin — the API does the work, the UI just gets out of the way.",
-  //   highlights: [
-  //     {
-  //       label: "One page per decision",
-  //       body: "Rating, synopsis, reviews and availability sit together rather than across four services.",
-  //     },
-  //     {
-  //       label: "Film and TV in one model",
-  //       body: "Both media types share a single browse and search path.",
-  //     },
-  //   ],
-  //   tech: ["React", "TMDB API", "JavaScript"],
-  //   links: [
-  //     { label: "Live site", href: "https://moviemix.vercel.app" },
-  //     { label: "Source", href: "https://github.com/solo0722" },
-  //   ],
-  //   images: [
-  //     {
-  //       src: "https://ik.imagekit.io/5kwcgtj3iv/images/moviemix.png?updatedAt=1685980275617",
-  //       alt: "Moviemix interface",
-  //     },
-  //   ],
-  //   published: true,
-  // },
+  {
+    slug: "moviemix",
+    title: "Moviemix",
+    year: "2023",
+    category: "Web",
+    role: "Design & build",
+    summary: "Ratings, reviews and where to watch — across films and television.",
+    problem:
+      "Deciding what to watch means opening four tabs: one for the rating, one for the synopsis, one for reviews, one to work out which service actually has it. The information exists; it's just scattered.",
+    build:
+      "Moviemix pulls all of it into one view off the TMDB API — details, ratings, reviews and streaming availability on a single page per title, with search and browse across both films and TV. Built in React with a focus on getting from search to decision in as few steps as possible.",
+    outcome:
+      "Four tabs become one page. The interface is deliberately thin — the API does the work, the UI just gets out of the way.",
+    highlights: [
+      {
+        label: "One page per decision",
+        body: "Rating, synopsis, reviews and availability sit together rather than across four services.",
+      },
+      {
+        label: "Film and TV in one model",
+        body: "Both media types share a single browse and search path.",
+      },
+    ],
+    tech: ["React", "TMDB API", "JavaScript"],
+    links: [
+      { label: "Live site", href: "https://moviemix.vercel.app" },
+      { label: "Source", href: "https://github.com/solo0722" },
+    ],
+    images: [
+      {
+        src: "https://ik.imagekit.io/5kwcgtj3iv/images/moviemix.png?updatedAt=1685980275617",
+        alt: "Moviemix interface",
+      },
+    ],
+    published: true,
+  },
   // {
   //   slug: "ripple",
   //   title: "Ripple",
