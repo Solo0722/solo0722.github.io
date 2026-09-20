@@ -1,0 +1,277 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   EDITORIAL NOIR — design tokens
+   A warm near-black canvas, bone typography, one amber accent.
+   ========================================================================== */
+
+@theme {
+  /* Surfaces — warm blacks */
+  --color-bg: #080706;
+  --color-raised: #0e0c0a;
+  --color-inset: #050403;
+
+  /* Type — every step is checked against --color-bg for WCAG AA (4.5:1).
+     `faint` was #4a453f, which looked right but measured 2.12:1 and failed
+     badly; it carries most of the mono labels, so it had to move. The scale
+     below keeps a visible hierarchy while staying legible:
+       bone 16.5:1 · bone-2 9.4:1 · muted 6.6:1 · faint 4.9:1 */
+  --color-bone: #ede8e0;
+  --color-bone-2: #b8b0a6;
+  --color-muted: #9a9289;
+  --color-faint: #837d73;
+
+  /* Hairlines */
+  --color-line: rgb(237 232 224 / 0.1);
+  --color-line-2: rgb(237 232 224 / 0.18);
+
+  /* Accent */
+  --color-amber: #e0a458;
+  --color-amber-dim: #a87a40;
+
+  /* Typefaces — variables injected by next/font in layout.tsx */
+  --font-display: var(--font-instrument-serif), ui-serif, Georgia, serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  /* Easings — expo-out is the house curve */
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+
+  /* Vertical rhythm between sections */
+  --spacing-section: clamp(3.5rem, 7vh, 5.5rem);
+}
+
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    border-color: var(--color-line);
+    min-width: 0;
+  }
+
+  html {
+    background-color: var(--color-bg);
+    scroll-padding-top: 5rem;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-bone);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background-color: var(--color-amber);
+    color: var(--color-bg);
+  }
+
+  ::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-inset);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2a2723;
+    border: 2px solid var(--color-inset);
+    border-radius: 99px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-faint);
+  }
+
+  :focus-visible {
+    outline: 1px solid var(--color-amber);
+    outline-offset: 3px;
+  }
+}
+
+/* ==========================================================================
+   TYPE SCALE
+   Deliberately restrained — the serif does the work through contrast with the
+   sans, not through size. Nothing here exceeds ~72px.
+   ========================================================================== */
+
+@utility t-display {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5.6vw, 4.25rem);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  font-weight: 400;
+}
+
+@utility t-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.4vw, 2.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+}
+
+@utility t-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.375rem, 2.3vw, 1.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  font-weight: 400;
+}
+
+@utility t-h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, 1.5vw, 1.3125rem);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+}
+
+/* Small mono label — the connective tissue of the layout */
+@utility t-label {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+@utility t-body {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  letter-spacing: -0.005em;
+  color: var(--color-bone-2);
+}
+
+/* Narrow measure for long-form prose */
+@utility measure {
+  max-width: 60ch;
+}
+
+/* ==========================================================================
+   UTILITIES
+   ========================================================================== */
+
+/* Page gutter, shared by every section. The max-width is what keeps the site
+   from sprawling edge-to-edge on a wide display. */
+@utility shell {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 72rem;
+  padding-inline: clamp(1.5rem, 5vw, 2.5rem);
+}
+
+/* The mask a line of type slides up out of */
+@utility mask-line {
+  overflow: hidden;
+  display: block;
+  padding-bottom: 0.1em;
+  margin-bottom: -0.1em;
+}
+
+/* Faint radial bloom behind the hero */
+@utility bloom {
+  background: radial-gradient(
+    60% 60% at 50% 50%,
+    rgb(224 164 88 / 0.09) 0%,
+    rgb(224 164 88 / 0.025) 45%,
+    transparent 72%
+  );
+}
+
+/* ==========================================================================
+   REDUCED MOTION
+   Scoped deliberately narrowly.
+
+   The preference asks for less *motion* — large translations, parallax,
+   anything looping — not for a dead page. Blanket-disabling every transition
+   (as this file used to) strips out colour and opacity fades too, which makes
+   the site feel broken rather than calm. So: kill looping animations, and let
+   the components decide per-property (see motion/reveal.tsx, which snaps the
+   translate to zero duration but keeps the opacity fade).
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-iteration-count: 1 !important;
+    animation-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Transitions survive, but capped short so nothing drifts. */
+  *,
+  *::before,
+  *::after {
+    transition-duration: 200ms !important;
+  }
+}
+
+/* ==========================================================================
+   KEYFRAMES
+   ========================================================================== */
+
+/* Drives <Marquee>: the track holds two copies of the content, so translating
+   exactly -50% lands on an identical frame and the loop is seamless. */
+@keyframes marquee-x {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Hero entrance — CSS, deliberately not JS.
+
+   The hero is above the fold, so its paint time *is* the Largest Contentful
+   Paint. Animating it with Motion meant the text sat at opacity 0 until React
+   hydrated and the stagger elapsed: Lighthouse measured 1.9s of element render
+   delay and LCP landed at 3.9s. CSS animations start at first paint instead,
+   with no JS on the critical path, so LCP tracks FCP.
+
+   Delays are kept short for the same reason — every 100ms here is 100ms of LCP.
+   -------------------------------------------------------------------------- */
+
+@keyframes mask-rise {
+  from {
+    transform: translateY(110%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@layer components {
+  .anim-mask-rise {
+    animation: mask-rise 0.62s var(--ease-expo) both;
+    will-change: transform;
+  }
+
+  .anim-rise-in {
+    animation: rise-in 0.45s var(--ease-expo) both;
+  }
+}
