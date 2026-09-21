@@ -149,7 +149,7 @@ export const navLinks = [
   { label: "About", href: "#about", index: "01" },
   // { label: "Stack", href: "#stack", index: "02" },
   { label: "Experience", href: "#experience", index: "03" },
-  { label: "Prjects", href: "#work", index: "04" },
+  { label: "Projects", href: "#work", index: "04" },
   // { label: "Credentials", href: "#credentials", index: "05" },
   { label: "Contact", href: "#contact", index: "06" },
 ] as const;
@@ -613,162 +613,42 @@ export const collaborations: CaseStudy[] = [
 /* -------------------------------------------------------------------------- */
 
 export const projects: CaseStudy[] = [
-  // {
-  //   slug: "applyplus",
-  //   title: "ApplyPlus",
-  //   year: "2025",
-  //   category: "Web",
-  //   role: "Design & full-stack build",
-  //   summary: "Job-application automation — tailored CVs, cover letters and autofill.",
-  //   problem:
-  //     "Applying for jobs at any volume is mostly copying. The same details get retyped into a hundred slightly different forms, every CV needs reshaping for the posting in front of you, and every cover letter starts from a blank page. The work is repetitive enough to be automated and tedious enough that people give up before they've applied to anything.",
-  //   build:
-  //     "ApplyPlus keeps one structured profile per user and derives everything else from it. Paste a job posting and it reshapes the CV against that posting, drafts a matching cover letter, and fills the application form from the stored profile. I built it end to end — the profile model, the tailoring pipeline, the document generation, and the interface that ties them together — on Next.js with Firebase for auth and storage.",
-  //   outcome:
-  //     "What used to be an afternoon of copy-paste per application collapses into reviewing and sending. The profile stays the single source of truth, so updating one detail updates every future application rather than none of the past ones.",
-  //   highlights: [
-  //     {
-  //       label: "One profile, many outputs",
-  //       body: "A single structured record drives CV tailoring, cover-letter drafting and form autofill, so nothing is entered twice.",
-  //     },
-  //     {
-  //       label: "Posting-aware tailoring",
-  //       body: "Documents are reshaped against the specific job description rather than sent out generically.",
-  //     },
-  //     {
-  //       label: "Built to be reviewed",
-  //       body: "Everything generated is editable before it goes out — automation drafts, the user still signs off.",
-  //     },
-  //   ],
-  //   tech: ["Next.js", "React", "TypeScript", "Firebase", "Vercel"],
-  //   links: [
-  //     { label: "Live site", href: "https://applyplus.vercel.app" },
-  //     { label: "Source", href: "https://github.com/solo0722" },
-  //   ],
-  //   images: [
-  //     {
-  //       src: "https://ik.imagekit.io/5kwcgtj3iv/Screenshot%202025-03-20%20092831.png?updatedAt=1743466964954",
-  //       alt: "ApplyPlus interface",
-  //     },
-  //   ],
-  //   published: true,
-  // },
-  // {
-  //   slug: "campusease",
-  //   title: "CampusEase",
-  //   year: "2024",
-  //   category: "Mobile",
-  //   role: "Team lead & full-stack developer",
-  //   summary: "Services marketplace connecting KNUST students to local providers.",
-  //   problem:
-  //     "Campus services at KNUST ran on word of mouth. Finding someone to do laundry, grooming or academic support meant asking around a WhatsApp group and hoping. Providers had no way to be discovered beyond the students who already knew them, and students had no way to compare or verify anyone.",
-  //   build:
-  //     "My final-year project, and the one I led. CampusEase is a mobile-first marketplace scoped deliberately to KNUST: students browse and search providers by service type, providers hold a profile, and a rating system gives both sides something to go on. I led a team of three as full-stack developer, built the React Native client for iOS and Android, and used Firebase for realtime data and authentication.",
-  //   outcome:
-  //     "Delivered inside the project timeline, January to July 2024. Cross-platform delivery widened the potential reach by 50%, and Firebase held up through testing with 50+ simulated users. Discovery moved out of group chats and into something searchable.",
-  //   highlights: [
-  //     {
-  //       label: "Led a team of three",
-  //       body: "Final-year project delivered on schedule, coordinating with campus providers and students throughout.",
-  //     },
-  //     {
-  //       label: "Cross-platform from one codebase",
-  //       body: "React Native covering iOS and Android, increasing potential reach by 50%.",
-  //     },
-  //     {
-  //       label: "Realtime by default",
-  //       body: "Firebase kept listings and requests in sync, verified against 50+ simulated users.",
-  //     },
-  //   ],
-  //   tech: ["React Native", "Expo", "Firebase", "FastAPI"],
-  //   links: [
-  //     { label: "Live site", href: "https://campusease.vercel.app" },
-  //     { label: "Source", href: "https://github.com/solo0722" },
-  //   ],
-  //   images: [
-  //     {
-  //       src: "https://ik.imagekit.io/5kwcgtj3iv/images/Mobile%20Mockup%2009%20(2).png?updatedAt=1729791608684",
-  //       alt: "CampusEase mobile screens",
-  //     },
-  //   ],
-  //   published: true,
-  // },
-  // {
-  //   slug: "class-assistant",
-  //   title: "Class Assistant",
-  //   year: "2024",
-  //   category: "Web",
-  //   role: "Full-stack build",
-  //   summary: "Closing the communication gap in KNUST's virtual classrooms.",
-  //   problem:
-  //     "KNUST's move to virtual classrooms solved delivery but not conversation. Lecturers broadcast; students had no reliable channel back. Questions went unasked or scattered across personal WhatsApp numbers, and neither side had a shared record of what had been asked or answered.",
-  //   build:
-  //     "Class Assistant sits alongside the virtual classroom as a dedicated communication layer between students and lecturers — structured around classes rather than individuals, so context stays with the course. I built the React frontend, a Node.js API, and a PostgreSQL schema modelling classes, participants and threads.",
-  //   outcome:
-  //     "Course conversation gained a single home with a history, instead of living in private messages that vanished at the end of term.",
-  //   highlights: [
-  //     {
-  //       label: "Structured by class",
-  //       body: "Threads belong to a course, not a person, so context survives after the semester.",
-  //     },
-  //     {
-  //       label: "Relational where it matters",
-  //       body: "PostgreSQL models the participant graph properly rather than flattening it into documents.",
-  //     },
-  //     {
-  //       label: "Additive, not replacing",
-  //       body: "Designed to complement the existing virtual classroom instead of asking anyone to migrate.",
-  //     },
-  //   ],
-  //   tech: ["React", "Node.js", "PostgreSQL", "Express"],
-  //   links: [
-  //     { label: "Live site", href: "https://class-assistant.vercel.app" },
-  //     { label: "Source", href: "https://github.com/solo0722" },
-  //   ],
-  //   images: [
-  //     {
-  //       src: "https://ik.imagekit.io/5kwcgtj3iv/Screenshot%202024-11-12%20143103.png?updatedAt=1731432558974",
-  //       alt: "Class Assistant interface",
-  //     },
-  //   ],
-  //   published: true,
-  // },
-  // {
-  //   slug: "streamline",
-  //   title: "Streamline",
-  //   year: "2023",
-  //   category: "Web",
-  //   role: "Design & build",
-  //   summary: "A tech publication with a structured editorial backend.",
-  //   problem:
-  //     "Most personal tech blogs are either a static folder of markdown that nobody but the author can update, or a heavyweight CMS that outweighs the writing. Neither works if you want to publish regularly and let someone else edit.",
-  //   build:
-  //     "Streamline pairs a React frontend with Sanity as the editorial backend. Content models are defined as schemas — posts, authors, categories — so structure is enforced at the source rather than patched in the template. Editors write in Sanity Studio; the frontend renders whatever shape they publish.",
-  //   outcome:
-  //     "Publishing stopped requiring a deploy. The content model is explicit enough that the site layout can change without touching a single post.",
-  //   highlights: [
-  //     {
-  //       label: "Schema-first content",
-  //       body: "Posts, authors and categories are modelled in Sanity, so the frontend never guesses at shape.",
-  //     },
-  //     {
-  //       label: "Editing without deploying",
-  //       body: "Studio-based authoring means new posts go live without a build.",
-  //     },
-  //   ],
-  //   tech: ["React", "Sanity", "Vercel"],
-  //   links: [
-  //     { label: "Live site", href: "https://streamline-one.vercel.app" },
-  //     { label: "Source", href: "https://github.com/solo0722" },
-  //   ],
-  //   images: [
-  //     {
-  //       src: "https://ik.imagekit.io/5kwcgtj3iv/images/streamline.png?updatedAt=1685980343905",
-  //       alt: "Streamline interface",
-  //     },
-  //   ],
-  //   published: true,
-  // },
+{
+    slug: "mdify",
+    title: "Mdify",
+    year: "2026",
+    category: "CLI",
+    role: "Design & build",
+    summary:
+      "Turn HTML, Word and spreadsheet files into clean Markdown for LLMs, from one command.",
+    problem:
+      "Feeding a raw document to an LLM is wasteful. HTML arrives buried in tags, scripts and styling; Word and Excel files aren't readable text at all. Whatever structure the document had — headings, lists, tables — is lost or drowned in noise before the model sees it.",
+    build:
+      "Mdify is a Python command-line tool that converts HTML, DOCX, CSV and XLSX files to Markdown. It uses only the standard library: HTML through a parser, DOCX and XLSX by reading the zipped XML directly. Each format is its own converter module behind one CLI, so adding a format means adding a file. Modeled on Microsoft's MarkItDown and built as an independent implementation with AI coding tools; the README names the exact tools and the reference project.",
+    outcome:
+      "One command turns a file into structured Markdown, with headings, lists and tables intact. A --stats flag prints character counts and an estimated token count (characters divided by four) for the input and the output, so the size difference is visible. PPTX, PDF and batch conversion are queued on the project board.",
+    highlights: [
+      {
+        label: "One command, four formats",
+        body: "HTML, DOCX, CSV and XLSX all go through the same convert command, with the converter chosen from the file extension.",
+      },
+      {
+        label: "Built to grow",
+        body: "Every format lives in its own module, so new file types slot in without touching the existing ones. The roadmap is tracked on a public project board.",
+      },
+    ],
+    tech: ["Python", "CLI", "pytest"],
+    links: [
+      { label: "Source", href: "https://github.com/solo0722/mdify" },
+    ],
+    images: [
+      {
+        src: "https://ik.imagekit.io/5kwcgtj3iv/images/Screenshot%202026-09-20%20205908.png?updatedAt=1789956160526",
+        alt: "Mdify converting an HTML file to Markdown in the terminal",
+      },
+    ],
+    published: true,
+  },
   {
     slug: "moviemix",
     title: "Moviemix",
@@ -805,42 +685,6 @@ export const projects: CaseStudy[] = [
     ],
     published: true,
   },
-  // {
-  //   slug: "ripple",
-  //   title: "Ripple",
-  //   year: "2023",
-  //   category: "Web",
-  //   role: "Design & build",
-  //   summary: "Storefront for phones and accessories on a headless commerce API.",
-  //   problem:
-  //     "A small retailer selling phones and accessories needs a real storefront — catalogue, cart, checkout — without taking on the maintenance burden of a self-hosted commerce platform.",
-  //   build:
-  //     "Ripple is a Next.js storefront on top of CommerceJS, which handles products, cart state and checkout as a service. That split let me spend the effort on the shopping experience — browsing, filtering, the cart — rather than on payment plumbing.",
-  //   outcome:
-  //     "A complete commerce flow with no server to maintain. Catalogue changes happen in the commerce backend and appear on the storefront without a code change.",
-  //   highlights: [
-  //     {
-  //       label: "Headless by design",
-  //       body: "CommerceJS owns products and checkout; the frontend owns the experience.",
-  //     },
-  //     {
-  //       label: "Full purchase path",
-  //       body: "Browse, filter, cart and checkout all working end to end.",
-  //     },
-  //   ],
-  //   tech: ["Next.js", "CommerceJS", "React"],
-  //   links: [
-  //     { label: "Live site", href: "https://ripple-sigma.vercel.app" },
-  //     { label: "Source", href: "https://github.com/solo0722" },
-  //   ],
-  //   images: [
-  //     {
-  //       src: "https://ik.imagekit.io/5kwcgtj3iv/images/ripple.png?updatedAt=1685980331800",
-  //       alt: "Ripple storefront",
-  //     },
-  //   ],
-  //   published: true,
-  // },
 ];
 
 /** Smaller builds — listed, not given a full case study. */
